@@ -1,10 +1,14 @@
 
 
 function User(props) {
-    let item = props
+    let {item:user} = props
     return (
         <div>
-            <h2>{item.id} --- {item.name}</h2>
+            <h2>id: {user.id}  Name: {user.name}</h2>
+            <p>
+                {user.email} <br/> {user.address.city}
+
+            </p>
         </div>
     );
 }
