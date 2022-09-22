@@ -6,19 +6,18 @@
 import React, {useEffect, useState} from 'react';
 import User from "./User";
 import UserDetail from "./UserDetail";
+import {userService} from "../../services/user.service";
 
-function Users() {
+const Users =()=> {
     const [users,setUsers]= useState([])
     const [user, setUser] = useState(null)
 
-    // const lift = (obj)=>{
-    //     setUser(obj)
-    // } - можна позбутися оскільки функція просто запускає функцію, відповідно ми можемо передати її відразу
+    const lift = (obj)=>{
+        setUser(obj)
+    }
 
     useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(value => value.json())
-            .then(value => {setUsers(value)});
+      userService.getAll().then(value => setUsers(value.data))
     },[])
 
     return (
@@ -27,15 +26,43 @@ function Users() {
             {/*{user? <div> qwrqwr </div> : <div> Dqwrqwr </div>}*/}
             {user?
                 <div>
-                    <UserDetail item={user} key={user.id}/>
+                    <UserDetail user={user} key={user.id}/>
                 </div>
                 :
                 <div>Detailed information of user</div>
             }
             <hr/>
-            {users.map(user => (<User item={user} key={user.id} lift={setUser}/>))}
+            {users.map(user => (<User user={user} key={user.id} lift={lift}/>))}
         </div>
     );
 }
+// function Users() {
+//     const [users,setUsers]= useState([])
+//     const [user, setUser] = useState(null)
+//
+//     const lift = (obj)=>{
+//         setUser(obj)
+//     }
+//
+//     useEffect(()=>{
+//         fetch('https://jsonplaceholder.typicode.com/users')
+//             .then(value => value.json())
+//             .then(value => {setUsers(value)});
+//     },[])
+//
+//     return (
+//         <div>
+//             {user?
+//                 <div>
+//                     <UserDetail user={user} key={user.id}/>
+//                 </div>
+//                 :
+//                 <div>Detailed information of user</div>
+//             }
+//             <hr/>
+//             {users.map(user => (<User user={user} key={user.id} lift={lift}/>))}
+//         </div>
+//     );
+// }
 
 export default Users;

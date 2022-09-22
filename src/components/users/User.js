@@ -1,5 +1,5 @@
 function User(props) {
-    let {item:user, lift} = props
+    let {user, lift} = props
     return (
         <div>
             <h2>id: {user.id}  Name: {user.name}</h2>

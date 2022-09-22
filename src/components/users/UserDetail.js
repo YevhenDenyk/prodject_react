@@ -1,5 +1,5 @@
-function UserDetail(props) {
-    let {item:user} = props
+const UserDetail = ({user}) => {
+
     return (
         <div>
             <h2>id: {user.id}  Name: {user.name}</h2>
