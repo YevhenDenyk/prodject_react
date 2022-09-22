@@ -10,7 +10,6 @@ import UserDetail from "./UserDetail";
 function Users() {
     const [users,setUsers]= useState([])
     const [user, setUser] = useState(null)
-    let eded = console.log(user)
 
     // const lift = (obj)=>{
     //     setUser(obj)

@@ -7,9 +7,7 @@ function UserDetail(props) {
                 email: {user.email} <br/>
                 phone :{user.phone} <br/>
                 city: {user.address.city}
-
             </p>
-
         </div>
     );
 }
