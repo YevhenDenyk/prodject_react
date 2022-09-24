@@ -1,0 +1,10 @@
+.Car{
+    border: 2px solid silver;
+    margin: 10px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+.tools button{
+    margin: 10px;
+}
