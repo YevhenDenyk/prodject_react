@@ -25,7 +25,6 @@ const CarForm = ({setCars, carForUpdate, setCarForUpdate}) => {
         }
     }, [carForUpdate, setValue])
 
-
     const submit = async (car) => {
         if (carForUpdate) {
             const {data} = carService.updateById(carForUpdate.id, car);
