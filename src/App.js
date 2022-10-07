@@ -1,12 +1,24 @@
-import './App.css';
-import {BrowserRouter,Routes,Route,Link,Outlet} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
+
+import {MainLayout} from "./layout/MainLayout";
+import {AlbumsPage, CommentsPage, TodoPages} from "./pages";
+import {Posts} from "./components";
+
 
 function App() {
-  return (
-    <div>
-
-    </div>
-  );
+    return (
+        <div>
+            <Routes>
+                <Route path={'/'} element={<MainLayout/>}>
+                    <Route path={'albums'} element={<AlbumsPage/>}/>
+                    <Route path={'todos'} element={<TodoPages/>}/>
+                    <Route path={'comments'} element={<CommentsPage/>}>
+                        <Route path={':postId'} element={<Posts/>}/>
+                    </Route>
+                </Route>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
