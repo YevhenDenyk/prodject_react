@@ -1,12 +1,14 @@
-import './App.css';
-import {BrowserRouter,Routes,Route,Link,Outlet} from "react-router-dom";
+import {Count1} from "./component";
+import {Count2} from "./component/count2";
 
 function App() {
-  return (
-    <div>
-
-    </div>
-  );
+    return (
+        <div>
+            <Count1/>
+            <hr/>
+            <Count2/>
+        </div>
+    );
 }
 
 export default App;
