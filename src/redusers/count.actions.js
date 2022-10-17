@@ -1,8 +1,6 @@
-const INC = 'INC'
-const DEC = 'DEC'
-const SET = 'SET'
-const RESET = 'RESET'
+const addCat = 'addCat'
+const deleteCat = 'deleteCat'
+const addDog = 'addDog'
+const deleteDog = 'deleteDog'
 
-export {
-    INC,DEC,SET,RESET
-}
+export {addCat,addDog,deleteCat,deleteDog}
