@@ -1,13 +1,9 @@
-import {Count1, Count2, Count3} from "./component";
+import {Cats} from "./component";
 
 function App() {
     return (
         <div>
-            <Count1/>
-            <hr/>
-            <Count2/>
-            <hr/>
-            <Count3/>
+            <Cats/>
         </div>
     );
 }

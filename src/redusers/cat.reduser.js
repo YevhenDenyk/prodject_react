@@ -1,6 +1,7 @@
-import {useReducer} from "react";
+
 
 import {addCat, deleteCat} from "./count.actions";
+import {useReducer} from "react";
 
 const reduser = (state, action) => {
     const {type, payload} = action
@@ -13,6 +14,6 @@ const reduser = (state, action) => {
     }
 }
 
-const catUseReducer = () => useReducer (reduser, {cats: []})
+const useCatReducer = () => useReducer(reduser, {cats: []})
 
-export {catUseReducer}
+export {useCatReducer}

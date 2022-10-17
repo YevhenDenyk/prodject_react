@@ -1,11 +1,12 @@
 import {useRef} from "react";
 
-import {addCat, catUseReducer, deleteCat} from "../../redusers";
+import {addCat, useCatReducer, deleteCat} from "../../redusers";
+import {Cat} from "../cat/Cat";
 
 
-const Cats = () => {
+const Cats = (delCat) => {
 
-    const [state, dispatch] = catUseReducer()
+    const [state, dispatch] = useCatReducer()
 
     const catInput = useRef()
 
@@ -13,6 +14,7 @@ const Cats = () => {
         dispatch({type: addCat, payload: catInput.current.value})
         catInput.current.value = ''
     }
+    const delCat = (catID) => dispatch({type: deleteCat, payload: catID})
 
     return (
         <div>
@@ -21,10 +23,7 @@ const Cats = () => {
                 <button onClick={createCat}>Save</button>
             </div>
             {
-                state.cats.map(cat => (<div key={cat.id}>
-                    {cat.name}
-                    <button onClick={() => dispatch({type: deleteCat, payload: cat.id})}> Delete</button>
-                </div>))
+                state.cats.map(cat => <Cat key={cat.id} cat={cat} catID={catID}/>)
             }
         </div>
     );
