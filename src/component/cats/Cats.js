@@ -1,10 +1,9 @@
 import {useRef} from "react";
 
-import {addCat, useCatReducer, deleteCat} from "../../redusers";
 import {Cat} from "../cat/Cat";
+import {addCat, deleteCat, useCatReducer} from "../../redusers";
 
-
-const Cats = (delCat) => {
+const Cats = () => {
 
     const [state, dispatch] = useCatReducer()
 
@@ -19,11 +18,11 @@ const Cats = (delCat) => {
     return (
         <div>
             <div className={'cats'}>
-                <label> Cats name: <input type="text" ref={catInput}/> </label>
+                Cats name: <input type="text" ref={catInput}/>
                 <button onClick={createCat}>Save</button>
             </div>
             {
-                state.cats.map(cat => <Cat key={cat.id} cat={cat} catID={catID}/>)
+                state.cats.map(cat => <Cat key={cat.id} cat={cat} delCat={delCat}/>)
             }
         </div>
     );

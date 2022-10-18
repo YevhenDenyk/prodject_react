@@ -1,8 +1,8 @@
-const Cat = ({cat,catID}) => {
+const Cat = ({cat,delCat}) => {
     return (
         <div>
                 {cat.name}
-                <button onClick={catID=>{cat.id}}> Delete</button>
+                <button onClick={()=>delCat(cat.id)}> Delete</button>
         </div>
     );
 };
