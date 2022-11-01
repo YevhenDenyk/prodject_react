@@ -1,0 +1,6 @@
+export * from './Header/Header'
+export * from './Register/Register'
+export * from './Login/Login'
+export * from './Car/Car'
+export * from './Cars/Cars'
+export * from './CarForm/CarForm'
