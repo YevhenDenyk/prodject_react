@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
+import {useSearchParams} from "react-router-dom";
 
 import {CarForm, Cars} from "../../components";
 import {carService} from "../../services";
-import {useSearchParams} from "react-router-dom";
 
 const CarPage = () => {
     const [cars, setCars] = useState([]);
@@ -28,7 +28,7 @@ const CarPage = () => {
 
     return (
         <div>
-            <CarForm/>
+            <CarForm setCars={setCars}/>
             <hr/>
             <Cars cars={cars} setCars={setCars}/>
             <button disabled={!prev} onClick={prevPage}>prevPage</button>
