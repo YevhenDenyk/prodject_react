@@ -1,12 +1,10 @@
 import {combineReducers} from "redux";
 
-import {postsReducer} from "../reducers/posts.reducer";
-import {commentReducer} from "../reducers/comment.reducer";
-import {usersReducer} from "../reducers/users.reducer";
+import {commentsReducer, postsReducer, usersReducer} from "../reducers";
 
 const reducer = combineReducers({
     postsReducer,
-    commentReducer,
+    commentsReducer,
     usersReducer
 });
 
