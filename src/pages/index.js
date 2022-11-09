@@ -1,0 +1,6 @@
+export * from './UsersPage'
+export * from './SingleUserPage'
+export * from './PostsPage'
+export * from './CommentsPage'
+export * from './SinglePostPage'
+export * from './SingleCommentsPage'
