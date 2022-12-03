@@ -1,12 +1,17 @@
-import './App.css';
-import {BrowserRouter,Routes,Route,Link,Outlet} from "react-router-dom";
+import {Comments, Header, Posts, Users} from "./component";
+
 
 function App() {
-  return (
-    <div>
-
-    </div>
-  );
+    return (
+        <div>
+            <Header/>
+            <div>
+                {/*<Posts/>*/}
+                {/*<Users/>*/}
+                <Comments/>
+            </div>
+        </div>
+    );
 }
 
 export default App;
