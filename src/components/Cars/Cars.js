@@ -7,19 +7,24 @@ import {cartAction} from "../../redux";
 
 const Cars = () => {
 
-const dispatch = useDispatch();
-const {cars} = useSelector(state => state.carReducer);
-useEffect(()=>{
-    dispatch(cartAction.getAll())
-},[])
+    const dispatch = useDispatch();
+    const {cars, car} = useSelector(state => state.carReducer);
+    useEffect(() => {
+        dispatch(cartAction.getAll())
+    }, [])
 
     return (
         <div>
             <div>
-            <CarForm/>
+                <CarForm/>
             </div>
+            <hr/>
             <div>
-                {cars.map(car=><Car key={car.id} car={car}/>)}
+                {car && car.model}
+            </div>
+            <hr/>
+            <div>
+                {cars.map(car => <Car key={car.id} car={car}/>)}
             </div>
         </div>
     );
