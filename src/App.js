@@ -1,12 +1,11 @@
-import './App.css';
-import {BrowserRouter,Routes,Route,Link,Outlet} from "react-router-dom";
+import {Cars} from "./component/Cars/Cars";
 
 function App() {
-  return (
-    <div>
-
-    </div>
-  );
+    return (
+        <div>
+            <Cars/>
+        </div>
+    );
 }
 
 export default App;
