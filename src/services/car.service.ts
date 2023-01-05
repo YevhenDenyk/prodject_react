@@ -5,7 +5,8 @@ import {urls} from "../configs";
 
 const carService = {
     getAll: ():AxiosRes<ICar[]> => axiosService.get(urls.cars),
-    // createCar: (car):AxiosRes<ICar> => axiosService.post(urls.cars, car)
+    create: (car:ICar):AxiosRes<ICar> => axiosService.post(urls.cars, car),
+    getById: (id:number):AxiosRes<ICar> => axiosService.get(`${urls.cars}/${id}`)
 }
 
 export {carService}

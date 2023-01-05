@@ -1,6 +1,7 @@
 import {FC, ReactNode} from "react";
 
 import {ICar} from "../../interfaces";
+import {Navigate, useNavigate} from "react-router-dom";
 
 interface IProps {
     car: ICar,
@@ -10,6 +11,7 @@ interface IProps {
 const Car: FC<IProps> = ({car}) => {
 
     const {id, model, year, price} = car;
+    const navigate = useNavigate()
 
     return (
         <div>
@@ -17,6 +19,7 @@ const Car: FC<IProps> = ({car}) => {
             <div> model:{model} </div>
             <div> year:{year} </div>
             <div> price:{price} </div>
+            <button onClick={()=> navigate(`${id}`,{state:car})}>  Navigate</button>
         </div>
     );
 };
