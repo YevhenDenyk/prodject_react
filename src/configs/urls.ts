@@ -4,4 +4,6 @@ const urls = {
     cars: 'cars'
 }
 
-export {baseURL,urls}
+export {
+    baseURL, urls
+}
