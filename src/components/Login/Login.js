@@ -1,34 +1,33 @@
 import {useForm} from "react-hook-form";
+import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+
 import {authService} from "../../services";
-import {useNavigate, useSearchParams} from "react-router-dom";
 
 const Login = () => {
-    const {handleSubmit, register} = useForm();
+    const {handleSubmit, register, reset} = useForm();
     const navigate = useNavigate();
+    const [error, setError] = useState(null);
 
     const submit = async (user) => {
         try {
             const {data} = await authService.login(user);
-            authService.setTokens(data);
+            authService.setToken(data)
             navigate('/cars')
         } catch (e) {
-            console.log(e);
+            setError(e.response.data)
         }
-    };
-
-    const [query,] = useSearchParams();
+        reset()
+    }
 
     return (
-        <div>
-            {query.has('expSession') && <h1>Session end!</h1>}
-            <form onSubmit={handleSubmit(submit)}>
-                <input type="text" placeholder={'username'} {...register('username')}/>
-                <input type="text" placeholder={'password'} {...register('password')}/>
-                <button>Login</button>
-            </form>
-        </div>
+        <form onSubmit={handleSubmit(submit)}>
+            {error && <h3>{error}</h3>}
+            <input type="text" placeholder={'userName'} {...register('userName')}/>
+            <input type="text" placeholder={'password'} {...register('password')}/>
+            <button>Login</button>
+        </form>
     );
 };
-
 
 export {Login};
