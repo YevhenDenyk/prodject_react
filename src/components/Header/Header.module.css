@@ -1,0 +1,17 @@
+.Header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    background: darkseagreen;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btns.button{
+    margin: 5px;
+}

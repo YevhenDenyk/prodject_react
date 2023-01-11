@@ -1,5 +1,5 @@
 import {useForm} from "react-hook-form";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 import {useState} from "react";
 
 import {authService} from "../../services";
@@ -19,14 +19,18 @@ const Login = () => {
         }
         reset()
     }
+    const [query,] = useSearchParams();
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
-            {error && <h3>{error}</h3>}
-            <input type="text" placeholder={'userName'} {...register('userName')}/>
-            <input type="text" placeholder={'password'} {...register('password')}/>
-            <button>Login</button>
-        </form>
+        <div>
+            {query.has('expSession') && <h1>Session end!</h1>}
+            <form onSubmit={handleSubmit(submit)}>
+                {error && <h3>{error}</h3>}
+                <input type="text" placeholder={'userName'} {...register('userName')}/>
+                <input type="text" placeholder={'password'} {...register('password')}/>
+                <button>Login</button>
+            </form>
+        </div>
     );
 };
 
