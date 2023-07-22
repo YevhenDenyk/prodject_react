@@ -35,8 +35,10 @@ axiosService.interceptors.response.use((config) => {
                 authService.deleteToken()
                 history.replace('/login?expSession=true')
             }
-            return Promise.reject(error)
+            isRefreshing = false
+            return axiosService(error.config)
         }
+        return Promise.reject(error)
     })
 
 export {axiosService, history}
